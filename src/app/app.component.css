@@ -31,6 +31,7 @@ button {
     min-height: 40px;
     color: #cfe2f1;
     border-radius: 8px;
+    font-size: 15px;
 }
 
 button:hover.number {
@@ -49,6 +50,11 @@ button:hover.function2 {
 
 button:hover.operation {
     background-color: #1d3849;
+    transition: 0.3s;
+}
+
+button:hover#equals {
+    background-color: #2a4f67;
     transition: 0.3s;
 }
 
@@ -85,6 +91,7 @@ button:hover.operation {
     overflow: hidden;
     text-overflow: ellipsis;
     width:300px;
+    margin-bottom: 10px;
 }
 
 #result {
@@ -96,5 +103,9 @@ button:hover.operation {
     justify-content: space-between; 
 }
 #id {
-    font: medium;
+    font: xx-large;
+}
+
+#equals {
+    background-color: #2774af;
 }

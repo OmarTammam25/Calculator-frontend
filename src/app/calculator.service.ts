@@ -22,7 +22,9 @@ export class CalculatorService {
   getInverse(expression: string) {
     return this.http.get<Config>(`${this.configUrl}/inverse?operand=${expression}`)
   }
-
   
+  getPercent(expression: string) {
+    return this.http.get<Config>(`${this.configUrl}/percent?operand=${expression}`)
+  }
 }
 

@@ -6,9 +6,10 @@
       <tr>
         <td>
           <div class="output"> 
-            <output id="expression"> 
+            <output id="expression" *ngIf="this.myFunction.length === 0"> 
               {{leftOperand}} {{operator}} {{rightOperand}}
             </output>
+            <output id="functionResult" *ngIf="this.myFunction.length != 0">{{myFunction}}({{leftOperand}})</output>
             <output id="result"> {{config.result}} </output>   
           </div>
 
@@ -16,13 +17,13 @@
       </tr>
       <tr>
         <td>
-
+          <button class="function2" (click)="percent()">%</button>
         </td>
         <td>
           <button class="function2" (click)="clear()">CE</button>
         </td>
         <td>
-
+          <button class="function2" (click)="clear()">C</button>
         </td>
         <td>
           <button class="function2" (click)="eraseRecent()">back</button>
@@ -31,17 +32,19 @@
 
         <tr>
           <td>
-            <button class="function" (click)="inverse()">1/x</button>
+            <button class="function" (click)="inverse()">x<sup>-1</sup></button>
           </td>
           <td>
-            <button class="function" (click)="square()">x^2</button>
+            <button class="function" (click)="square()">x<sup>2</sup></button>
           </td>
           <td>
-            <button class="function" (click)="squareRoot()">sqrt(x)</button>
+            <button class="function" (click)="squareRoot()">
+              &#8730;x
+            </button>
           </td>
 
           <td>
-            <button class="operation"(click)="setOperator('/')" >/</button>
+            <button class="operation"(click)="setOperator('/')" >&#8725;</button>
           </td>
         </tr>
         
@@ -57,7 +60,7 @@
           <button class="number" (click)="appendOperand('9')">9</button>
         </td>
         <td>
-          <button class="operation" (click)="setOperator('*')">x</button>
+          <button class="operation" (click)="setOperator('*')">&#10006;</button>
         </td>
       </tr>
       
@@ -72,7 +75,7 @@
           <button class="number" (click)="appendOperand('6')">6</button>
         </td>
         <td>
-          <button class="operation" (click)="setOperator('-')">-</button>
+          <button class="operation" (click)="setOperator('-')">&minus;</button>
         </td>
       </tr>
 
@@ -87,7 +90,7 @@
           <button class="number" (click)="appendOperand('3')">3</button>
         </td>
         <td>
-          <button class="operation" (click)="setOperator('+')">+</button>
+          <button class="operation" (click)="setOperator('+')">&plus;</button>
         </td>
       </tr>
       
@@ -99,7 +102,7 @@
             <button class="number" (click)="appendOperand('.')">.</button>
           </td>
           <td>
-            <button class="operation" id="equals" (click)="calculate()">=</button>
+            <button class="operation" id="equals" (click)="calculate()">&equals;</button>
           </td>
         </tr>
       </Table>
