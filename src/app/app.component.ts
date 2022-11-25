@@ -2,7 +2,7 @@ import { CompilerConfig } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Config } from './api';
 import { CalculatorService } from './calculator.service';
-import { faSquareRootAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBackspace } from '@fortawesome/free-solid-svg-icons';
 import { retry } from 'rxjs';
 
 @Component({
@@ -11,9 +11,9 @@ import { retry } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  squareRootIcon = faSquareRootAlt;
+  deleteIcon = faBackspace;
   title = 'calculator-frontend';
-  MAX_OPERAND_LENGTH = 19;
+  MAX_OPERAND_LENGTH = 16;
   MAX_DELAY = 20;
   leftOperand: string = "";
   rightOperand: string = "";
@@ -35,14 +35,13 @@ export class AppComponent {
       this.isResult = false;
     }
 
-    // making sure there's only 1 .
-
     if (this.operator.length === 0 && this.leftOperand.length <= this.MAX_OPERAND_LENGTH){
+      console.log("size = " + this.leftOperand.length);
       if(this.hasDot(this.leftOperand) && userOperand === ".")
         return;
       this.leftOperand += userOperand;
       console.log(this.leftOperand);
-    }else if (this.rightOperand.length <= this.MAX_OPERAND_LENGTH) {
+    }else if (this.rightOperand.length <= this.MAX_OPERAND_LENGTH && this.operator.length != 0) {
       if(this.hasDot(this.rightOperand) && userOperand === ".")
         return;
       this.rightOperand += userOperand;
@@ -59,7 +58,7 @@ export class AppComponent {
   async setOperator(userOperator: string){
     this.myFunction = "";
     if(this.leftOperand.length === 0) {
-      this.leftOperand = '0';
+        this.leftOperand = '0';  
     }
     if(this.rightOperand.length != 0){
       this.calculate();
@@ -97,7 +96,7 @@ export class AppComponent {
   
   isValidExpression() : boolean{
     if(this.leftOperand.length != 0 && this.operator.length != 0 && this.rightOperand.length != 0)
-    return true;
+      return true;
     return false;
   }
   delay(ms: number) {

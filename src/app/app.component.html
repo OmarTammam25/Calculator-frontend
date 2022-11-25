@@ -6,11 +6,11 @@
       <tr>
         <td>
           <div class="output"> 
-            <output id="expression" *ngIf="this.myFunction.length === 0"> 
+            <span id="expression" *ngIf="this.myFunction.length === 0"> 
               {{leftOperand}} {{operator}} {{rightOperand}}
-            </output>
-            <output id="functionResult" *ngIf="this.myFunction.length != 0">{{myFunction}}({{leftOperand}})</output>
-            <output id="result"> {{config.result}} </output>   
+            </span>
+            <span id="functionResult" *ngIf="this.myFunction.length != 0">{{myFunction}}({{leftOperand}})</span>
+            <span id="result" [ngStyle]="{'font-size': (config.result.toString().length > 20) ? '20px' : 'x-large'}"> {{config.result}} </span>   
           </div>
 
         </td>
@@ -26,7 +26,10 @@
           <button class="function2" (click)="clear()">C</button>
         </td>
         <td>
-          <button class="function2" (click)="eraseRecent()">back</button>
+          <button class="function2" (click)="eraseRecent()">
+            <fa-icon [icon]=deleteIcon> </fa-icon>
+            <i class='fas fa-delete-left'></i>
+          </button>
         </td>
       </tr>
 
