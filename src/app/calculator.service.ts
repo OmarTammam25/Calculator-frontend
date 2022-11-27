@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Config } from './api';
+import { config } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class CalculatorService {
   getRequest(expression: string) {
     return this.http.get<Config>(`${this.configUrl}/basic?expression=${expression.replace('+', '%2B').replace('e+', 'E')}`)
   }
+
   getSquareRoot(expression: string) {
     return this.http.get<Config>(`${this.configUrl}/sqrt?operand=${expression.replace('e+', 'E')}`)
   }

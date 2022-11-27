@@ -26,7 +26,7 @@ export class AppComponent {
     expression: '',
     result: 0
   };
-  
+
   isResult: boolean = false;
   constructor(private calculatorService: CalculatorService){}
   
@@ -212,8 +212,6 @@ export class AppComponent {
     });
     
   }
-
-  
 
 }
 
