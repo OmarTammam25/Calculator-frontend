@@ -6,27 +6,27 @@
       <tr>
         <td>
           <div class="output"> 
-            <span id="expression" *ngIf="this.myFunction.length === 0"> 
-              {{leftOperand}} {{operator}} {{rightOperand}}
+            <span id="expression" *ngIf="viewService.myFunction.length === 0"> 
+              {{viewService.leftOperand}} {{viewService.operator}} {{viewService.rightOperand}}
             </span>
-            <span id="functionResult" *ngIf="this.myFunction.length != 0">{{myFunction}}({{leftOperand}})</span>
-            <span id="result" [ngStyle]="{'font-size': (config.result.toString().length > 20) ? '20px' : 'x-large'}"> {{config.result}} </span>   
+            <span id="functionResult" *ngIf="viewService.myFunction.length != 0">{{viewService.myFunction}}({{viewService.leftOperand}})</span>
+            <span id="result" [ngStyle]="{'font-size': (viewService.config.result.toString().length > 20) ? '20px' : 'x-large'}"> {{viewService.config.result}} </span>   
           </div>
 
         </td>
       </tr>
       <tr>
         <td>
-          <button class="function2" (click)="percent()">%</button>
+          <button class="function2" (click)="viewService.percent()">%</button>
         </td>
         <td>
-          <button class="function2" (click)="clear()">CE</button>
+          <button class="function2" (click)="viewService.clear()">CE</button>
         </td>
         <td>
-          <button class="function2" (click)="clear()">C</button>
+          <button class="function2" (click)="viewService.clear()">C</button>
         </td>
         <td>
-          <button class="function2" (click)="eraseRecent()">
+          <button class="function2" (click)="viewService.eraseRecent()">
             <fa-icon [icon]=deleteIcon> </fa-icon>
             <i class='fas fa-delete-left'></i>
           </button>
@@ -35,82 +35,82 @@
 
         <tr>
           <td>
-            <button class="function" (click)="inverse()">x<sup>-1</sup></button>
+            <button class="function" (click)="viewService.inverse()">x<sup>-1</sup></button>
           </td>
           <td>
-            <button class="function" (click)="square()">x<sup>2</sup></button>
+            <button class="function" (click)="viewService.square()">x<sup>2</sup></button>
           </td>
           <td>
-            <button class="function" (click)="squareRoot()">
+            <button class="function" (click)="viewService.squareRoot()">
               &#8730;x
             </button>
           </td>
 
           <td>
-            <button class="operation"(click)="setOperator('/')" >&#8725;</button>
+            <button class="operation"(click)="viewService.setOperator('/')" >&#8725;</button>
           </td>
         </tr>
         
         
       <tr>
         <td>
-          <button class="number" (click)="appendOperand('7')">7</button>
+          <button class="number" (click)="viewService.appendOperand('7')">7</button>
         </td>
         <td>
-          <button class="number" (click)="appendOperand('8')">8</button>
+          <button class="number" (click)="viewService.appendOperand('8')">8</button>
         </td>
         <td>
-          <button class="number" (click)="appendOperand('9')">9</button>
+          <button class="number" (click)="viewService.appendOperand('9')">9</button>
         </td>
         <td>
-          <button class="operation" (click)="setOperator('*')">&#10006;</button>
+          <button class="operation" (click)="viewService.setOperator('*')">&#10006;</button>
         </td>
       </tr>
       
       <tr>
         <td>
-          <button class="number" (click)="appendOperand('4')">4</button>
+          <button class="number" (click)="viewService.appendOperand('4')">4</button>
         </td>
         <td>
-          <button class="number" (click)="appendOperand('5')">5</button>
+          <button class="number" (click)="viewService.appendOperand('5')">5</button>
         </td>
         <td>
-          <button class="number" (click)="appendOperand('6')">6</button>
+          <button class="number" (click)="viewService.appendOperand('6')">6</button>
         </td>
         <td>
-          <button class="operation" (click)="setOperator('-')">&minus;</button>
+          <button class="operation" (click)="viewService.setOperator('-')">&minus;</button>
         </td>
       </tr>
 
       <tr>
         <td>
-          <button class="number" (click)="appendOperand('1')">1</button>
+          <button class="number" (click)="viewService.appendOperand('1')">1</button>
         </td>
         <td>
-          <button class="number" (click)="appendOperand('2')">2</button>
+          <button class="number" (click)="viewService.appendOperand('2')">2</button>
         </td>
         <td>
-          <button class="number" (click)="appendOperand('3')">3</button>
+          <button class="number" (click)="viewService.appendOperand('3')">3</button>
         </td>
         <td>
-          <button class="operation" (click)="setOperator('+')">&plus;</button>
+          <button class="operation" (click)="viewService.setOperator('+')">&plus;</button>
         </td>
       </tr>
       
         <tr id="last-row">
           <td>
-            <button class="number" (click)="negate()">
+            <button class="number" (click)="viewService.negate()">
               +/- 
             </button>
           </td>
           <td id="zero">
-            <button class="number" (click)="appendOperand('0')">0</button>
+            <button class="number" (click)="viewService.appendOperand('0')">0</button>
           </td>
           <td>
-            <button class="number" (click)="appendOperand('.')">.</button>
+            <button class="number" (click)="viewService.appendOperand('.')">.</button>
           </td>
           <td>
-            <button class="operation" id="equals" (click)="calculate()">&equals;</button>
+            <button class="operation" id="equals" (click)="viewService.calculate()">&equals;</button>
           </td>
         </tr>
       </Table>
