@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 })
 export class ClickerDirective {
 
-  constructor(private element: ElementRef, private appComponent: AppComponent) { }
+  constructor(private appComponent: AppComponent) { }
   
   @HostListener('click', ['$event'])
   onButtonPress(event: any){

@@ -59,9 +59,6 @@ button:hover#equals {
     transition: 0.3s;
 }
 
-#zero {
-    flex: 2;
-}
 
 .number {
     background-color: 	#205b7a;

@@ -25,7 +25,8 @@ export class AppComponent {
     id: 1,
     expression: '',
     result: 0
-  }
+  };
+  
   isResult: boolean = false;
   constructor(private calculatorService: CalculatorService){}
   
@@ -191,6 +192,28 @@ export class AppComponent {
     this.isResult = true;
     this.myFunction = "percent"  
   }
+  
+  negate() {
+    this.updateOperandsAfterResult();
+    let temp = '';
+    if(this.leftOperand.length != 0 && this.rightOperand.length === 0){
+      temp = this.leftOperand;
+    }else if(this.leftOperand.length != 0 && this.rightOperand.length != 0 && this.operator.length != 0) {
+      temp = this.rightOperand;
+    }
+    this.calculatorService.getNegate(temp).subscribe(data => {
+      this.config = data;
+      if(this.rightOperand.length === 0 && this.operator.length === 0)
+        this.leftOperand = this.config.result.toString();
+      else if (this.rightOperand.length === 0 && this.operator.length != 0)
+        this.rightOperand = this.config.result.toString();
+      else
+        this.rightOperand = this.config.result.toString();
+    });
+    
+  }
+
+  
 
 }
 

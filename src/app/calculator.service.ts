@@ -11,20 +11,22 @@ export class CalculatorService {
   data: Config[] = [];
 
   getRequest(expression: string) {
-    return this.http.get<Config>(`${this.configUrl}/basic?expression=${expression.replace('+', '%2B')}`)
+    return this.http.get<Config>(`${this.configUrl}/basic?expression=${expression.replace('+', '%2B').replace('e+', 'E')}`)
   }
   getSquareRoot(expression: string) {
-    return this.http.get<Config>(`${this.configUrl}/sqrt?operand=${expression}`)
+    return this.http.get<Config>(`${this.configUrl}/sqrt?operand=${expression.replace('e+', 'E')}`)
   }
   getSquare(expression: string) {
-    return this.http.get<Config>(`${this.configUrl}/square?operand=${expression}`)
+    return this.http.get<Config>(`${this.configUrl}/square?operand=${expression.replace('e+', 'E')}`)
   }
   getInverse(expression: string) {
-    return this.http.get<Config>(`${this.configUrl}/inverse?operand=${expression}`)
+    return this.http.get<Config>(`${this.configUrl}/inverse?operand=${expression.replace('e+', 'E')}`)
   }
-  
   getPercent(expression: string) {
-    return this.http.get<Config>(`${this.configUrl}/percent?operand=${expression}`)
+    return this.http.get<Config>(`${this.configUrl}/percent?operand=${expression.replace('e+', 'E')}`)
+  }
+  getNegate(expression: string) {
+    return this.http.get<Config>(`${this.configUrl}/negate?operand=${expression.replace('e+', 'E')}`)
   }
 }
 
