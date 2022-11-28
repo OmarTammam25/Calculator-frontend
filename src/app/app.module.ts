@@ -7,11 +7,13 @@ import { ClickerDirective } from './directives/clicker.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ViewService } from './Services/view.service';
 import { CalculatorService } from './Services/calculator.service';
+import { OutputComponent } from './Components/output/output.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClickerDirective
+    ClickerDirective,
+    OutputComponent
   ],
   imports: [
     BrowserModule,

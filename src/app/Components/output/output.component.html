@@ -1,0 +1,7 @@
+<div class="output"> 
+    <span id="expression" *ngIf="myFunction.length === 0"> 
+      {{displayText}}
+    </span>
+    <span id="functionResult" *ngIf="myFunction.length != 0">{{myFunction}}({{displayText}})</span>
+    <span id="result" [ngStyle]="{'font-size': (result.toString().length > 20) ? '20px' : 'x-large'}"> {{result}} </span>   
+</div>

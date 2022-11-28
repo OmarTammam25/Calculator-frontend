@@ -76,45 +76,7 @@ button:hover#equals {
     background-color: #1d3849;
 }
 
-.output {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 80px;
-    background-color: #cfe2f1;
-    color: black;
-    text-align: left;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: x-large;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width:270px;
-    margin-bottom: 10px;
-    padding: 10px;
-    padding-right: 15px;
-    padding-left: 15px;
-    border-radius: 10px;
-}
 
-
-
-#result {
-    align-self: flex-end;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-width: 0;
-    
-}
-#expression{
-    justify-content: space-between; 
-}
-#functionResult {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 #id {
     font: xx-large;
 }

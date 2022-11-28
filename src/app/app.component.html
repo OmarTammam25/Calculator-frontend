@@ -5,14 +5,11 @@
     <Table>
       <tr>
         <td>
-          <div class="output"> 
-            <span id="expression" *ngIf="viewService.myFunction.length === 0"> 
-              {{viewService.leftOperand}} {{viewService.operator}} {{viewService.rightOperand}}
-            </span>
-            <span id="functionResult" *ngIf="viewService.myFunction.length != 0">{{viewService.myFunction}}({{viewService.leftOperand}})</span>
-            <span id="result" [ngStyle]="{'font-size': (viewService.config.result.toString().length > 20) ? '20px' : 'x-large'}"> {{viewService.config.result}} </span>   
-          </div>
-
+          <app-output 
+          [displayText]= "viewService.leftOperand + ' ' +  viewService.operator + ' ' +viewService.rightOperand"
+          [result]="viewService.config.result"
+          [myFunction]="viewService.myFunction">
+          </app-output>
         </td>
       </tr>
       <tr>
