@@ -1,4 +1,9 @@
-# CalculatorFrontend
+# Accursed Calculator
+<p style="text-align: center;"> A web-based calculator built using Angular and Spring boot.</p>  
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/96181216/204756721-7bb97103-1f8a-4bbe-bbb8-db36fcae670e.png" style="max-width:4%;"/>
+</p>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
 
