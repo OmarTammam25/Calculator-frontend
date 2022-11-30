@@ -14,7 +14,7 @@ import { ViewService } from './Services/view.service';
 export class AppComponent {
   deleteIcon = faBackspace;
   title = 'calculator-frontend';
-
+  
   constructor(public viewService: ViewService){}
 
 }

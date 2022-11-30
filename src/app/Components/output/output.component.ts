@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
+import { faStickyNote } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-output',
@@ -11,10 +12,10 @@ export class OutputComponent implements OnInit {
   @Input() myFunction: string = '';
 
   constructor() { }
-
   ngOnInit(): void {
     this.result = 0;
   }
 
+  
 
 }

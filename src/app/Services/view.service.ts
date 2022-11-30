@@ -78,10 +78,10 @@ export class ViewService {
   async calculate() {
     this.buildExpression();
     if(this.isValidExpression()){
-      this.calculatorService.getRequest(this.expression).subscribe(data => {
+     /*  this.calculatorService.getRequest(this.expression).subscribe(data => {
         this.config = data;
-      });
-
+      }); */
+      this.config.result = eval(this.expression);
     this.isResult = true;
     }
   }
@@ -139,9 +139,10 @@ export class ViewService {
     this.calculate();
     await this.delay(this.MAX_DELAY);
     this.updateOperandsAfterResult();
-    this.calculatorService.getInverse(this.leftOperand).subscribe(data => {
+    /* this.calculatorService.getInverse(this.leftOperand).subscribe(data => {
       this.config = data;
-    });
+    }); */
+    this.config.result = 1 / +this.leftOperand;
     await this.delay(this.MAX_DELAY);
     this.isResult = true;
     this.myFunction = "inverse";
@@ -152,9 +153,10 @@ export class ViewService {
     this.calculate();
     await this.delay(this.MAX_DELAY);
     this.updateOperandsAfterResult();
-    this.calculatorService.getSquare(this.leftOperand).subscribe(data => {
+    /* this.calculatorService.getSquare(this.leftOperand).subscribe(data => {
       this.config = data;
-    });
+    }); */
+    this.config.result = +this.leftOperand * +this.leftOperand;
     await this.delay(this.MAX_DELAY);
     this.isResult = true;
     this.myFunction = "square";
@@ -166,9 +168,10 @@ export class ViewService {
     await this.delay(this.MAX_DELAY);
     this.updateOperandsAfterResult();
     console.log(this.expression);
-    this.calculatorService.getSquareRoot(this.leftOperand).subscribe(data => {
+    /* this.calculatorService.getSquareRoot(this.leftOperand).subscribe(data => {
       this.config = data;
-    });
+    }); */
+    this.config.result = Math.sqrt(+this.leftOperand);
     await this.delay(this.MAX_DELAY);
     this.isResult = true;
     this.myFunction = "sqrt";
@@ -180,9 +183,10 @@ export class ViewService {
     await this.delay(this.MAX_DELAY);
     this.updateOperandsAfterResult();
     console.log(this.expression);
-    this.calculatorService.getPercent(this.leftOperand).subscribe(data => {
+    /* this.calculatorService.getPercent(this.leftOperand).subscribe(data => {
       this.config = data;
-    });
+    }); */
+    this.config.result = +this.leftOperand / 100.0;
     await this.delay(this.MAX_DELAY);
     this.isResult = true;
     this.myFunction = "percent"  
@@ -196,7 +200,7 @@ export class ViewService {
     }else if(this.leftOperand.length != 0 && this.rightOperand.length != 0 && this.operator.length != 0) {
       temp = this.rightOperand;
     }
-    this.calculatorService.getNegate(temp).subscribe(data => {
+  /*   this.calculatorService.getNegate(temp).subscribe(data => {
       this.config = data;
       if(this.rightOperand.length === 0 && this.operator.length === 0)
         this.leftOperand = this.config.result.toString();
@@ -204,7 +208,19 @@ export class ViewService {
         this.rightOperand = this.config.result.toString();
       else
         this.rightOperand = this.config.result.toString();
-    });
+      }); */
+      if(this.rightOperand.length === 0 && this.operator.length === 0){
+        this.config.result = -1 * +this.leftOperand;
+        this.leftOperand = this.config.result.toString();
+      }
+      else if (this.rightOperand.length === 0 && this.operator.length != 0){
+        this.config.result = -1 * +this.leftOperand;
+        this.rightOperand = this.config.result.toString();
+      }
+      else{
+        this.config.result = -1 * +this.rightOperand;
+        this.rightOperand = this.config.result.toString();
+      }
     
   }
 
